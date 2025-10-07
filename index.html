@@ -1,172 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perfumeria - inicio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfumería - Inicio</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Estilos personalizados -->
+  <style>
+    /* ----------- ESTILOS GENERALES ----------- */
+    body {
+      background-color: #fff;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    a {
+      transition: color 0.3s ease;
+    }
+
+    /* ----------- ENCABEZADO ----------- */
+    header {
+      background-color: #fff;
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    header h1 {
+      color: #111;
+      letter-spacing: 2px;
+      font-size: 2.3rem;
+    }
+
+    .nav-link {
+      color: #333 !important;
+      font-weight: 600;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #d4af37 !important;
+      border-bottom: 2px solid #d4af37;
+    }
+
+    /* Buscador */
+    #searchInput {
+      border-radius: 50px;
+      padding-left: 15px;
+    }
+
+    .btn-outline-secondary {
+      border-radius: 50px;
+      color: #d4af37;
+      border-color: #d4af37;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #d4af37;
+      color: white;
+    }
+
+    /* ----------- SECCIÓN DE COMBOS ----------- */
+    section h2 {
+      color: #111;
+    }
+
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .card h5 {
+      color: #d4af37;
+    }
+
+    .card button {
+      border-radius: 30px;
+      font-weight: 500;
+      border-color: #111;
+    }
+
+    .card button:hover {
+      background-color: #111;
+      color: white;
+    }
+
+    /* ----------- PUBLICIDAD ----------- */
+    .publicidad {
+      position: relative;
+    }
+
+    .publicidad img {
+      border-radius: 1rem;
+      object-fit: cover;
+      height: 400px;
+      width: 100%;
+      filter: brightness(0.9);
+    }
+
+    .publicidad::after {
+      content: "Descubrí las nuevas fragancias";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+    }
+
+    /* ----------- SECCIÓN NEGRA (SOPORTE, PROMOS) ----------- */
+    .bg-primary {
+      background-color: #111 !important;
+    }
+
+    .bg-primary p {
+      color: #f1f1f1;
+      font-weight: 500;
+    }
+
+    .bg-primary img {
+      filter: brightness(0) invert(1);
+    }
+
+    /* ----------- FOOTER ----------- */
+    footer {
+      background-color: #111;
+      color: #fff;
+    }
+
+    footer a {
+      color: #d4af37;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Encabezado -->
-    <header class="container py-3">
-        <div class="d-flex flex-wrap align-items-center justify-content-between">
-            <!-- Buscador con lupa -->
-           <form id="searchForm" class="d-flex align-items-center" role="search" onsubmit="return false;">
-             <input id="searchInput" class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar" />
-             <button class="btn btn-outline-secondary" type="submit" aria-label="Buscar" onclick="filtrarCombos()">
-                 <i class="bi bi-search"></i>
-             </button>
-            </form>
-
-
-            <!-- Logo -->
-            <section>
-                <a href="index.html">
-                    <img src="img/logo" alt="Logo" width="100px" />
-                </a>
-            </section>
-
-            <!-- Entra / Regístrate -->
-            <div class="d-flex align-items-center">
-                <i class="bi bi-circle-fill me-2" style="font-size: 1.5rem; color: #000;"></i>
-                <a href="php/Login.html" class="me-2 text-decoration-none">Entra</a> /
-                <a href="php/Registrate.html" class="ms-2 text-decoration-none">Regístrate</a>
-            </div>
-        </div>
-
-        <!-- Navegación -->
-        <nav class="mt-3">
-            <ul class="nav nav-pills justify-content-center">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="php/Fragancias.html">Fragancias</a></li>
-                <li class="nav-item"><a class="nav-link" href="php/Catalogos.html">Catálogo</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-            </ul>
+  <!-- ENCABEZADO -->
+  <header class="container-fluid py-3 border-bottom">
+    <div class="row align-items-center">
+      
+      <!-- Navegación -->
+      <div class="col-12 col-md-4 text-center text-md-start mb-3 mb-md-0">
+        <nav class="nav justify-content-center justify-content-md-start gap-3 flex-nowrap">
+          <a href="index.html" class="nav-link text-dark fw-semibold">Inicio</a>
+          <a href="php/Catalogos.html" class="nav-link text-dark fw-semibold">Catálogo</a>
+          <a href="php/Fragancias.html" class="nav-link text-dark fw-semibold">Fragancias</a>
+          <a href="php/Contacto.html" class="nav-link text-dark fw-semibold">Contacto</a>
         </nav>
+      </div>
 
-        <hr />
-    </header>
+      <!-- Logo centrado -->
+      <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+        <h1 class="fw-bold text-uppercase" style="font-size: 2rem; letter-spacing: 2px;">
+          Lux Fragancias
+        </h1>
+      </div>
 
-    <!-- Sección de Combos -->
-    <div class="container my-5">
-        <h2 class="mb-4 text-center">Elegí tu combo</h2>
-        <div class="row g-4 justify-content-center">
-            <!-- Tarjeta 1 -->
-            <div class="col-12 col-md-4">
-                <div class="card text-center h-100">
-                    <img src="img/Perfume" class="card-img-top mx-auto mt-3" alt="Perfume 1" style="width: 80px; height: auto;" />
-                    <div class="card-body">
-                        <p class="card-text mb-1">Promo 1 </p>
-                        <p class="card-text text-muted">Todos los medios de pagos</p>
-                        <strong>$10.000</strong>
-                    </div>
-                </div>
-            </div>
+      <!-- Buscador -->
+      <div class="col-12 col-md-4">
+        <form id="searchForm" class="d-flex justify-content-center justify-content-md-end" role="search" onsubmit="return false;">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Buscar">
+          <button class="btn btn-outline-secondary" type="submit" aria-label="Buscar" onclick="filtrarCombos()">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+      </div>
 
-            <!-- Tarjeta 2 -->
-            <div class="col-12 col-md-4">
-                <div class="card text-center h-100">
-                    <img src="img/Perfumes 2" class="card-img-top mx-auto mt-3" alt="Perfume 2" style="width: 80px; height: auto;" />
-                    <div class="card-body">
-                        <p class="card-text mb-1">Promo 2</p>
-                        <p class="card-text text-muted">Todos los medios de pagos</p>
-                        <strong>$20.000</strong>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="col-12 col-md-4">
-                <div class="card text-center h-100">
-                    <img src="img/Perfumes 3" class="card-img-top mx-auto mt-3" alt="Perfume 3" style="width: 80px; height: auto;" />
-                    <div class="card-body">
-                        <p class="card-text mb-1">Promo 3</p>
-                        <p class="card-text text-muted">Todos los medios de pagos</p>
-                        <strong>$30.000</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+  </header>
 
-    <!--Publicidad-->
-   <!-- Publicidad -->
-    <!-- Publicidad -->
-    <!-- Publicidad -->
-<div class="w-100">
-    <img 
-        src="img/Publicidad" 
-        title="Fotografía de un perfume como publicidad" 
-        alt="Imagen de publicidad" 
-        class="img-fluid rounded" 
-        style="height: 400px; object-fit: cover; width: 100%;">
-</div>
+  <!-- SECCIÓN DE COMBOS -->
+  <section class="container my-5">
+    <h2 class="mb-5 text-center fw-bold">Elegí tu combo</h2>
+    <div class="row g-4 justify-content-center">
 
-    <br>
-
-    <!-- Sección informativa con fondo azul -->
-    <section class="bg-primary text-white py-5">
-        <div class="container">
-            <div class="row text-center">
-                <!-- Soporte -->
-                <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <img src="img/whatsapp.png" alt="WhatsApp" width="50" class="mb-2" />
-                    <p class="mb-0">Atención y soporte postventa</p>
-                </div>
-
-                <!-- Medios de pago -->
-                <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <img src="img/billetera.png" alt="Cartera" width="50" class="mb-2" />
-                    <p class="mb-0">Todos los medios de pago en productos seleccionados</p>
-                </div>
-
-                <!-- Promos -->
-                <div class="col-12 col-md-4">
-                    <img src="img/etiqueta.png" alt="Etiqueta" width="50" class="mb-2" />
-                    <p class="mb-0">Promos y descuentos en combos de fragancias</p>
-                </div>
-            </div>
+      <!-- Tarjeta ejemplo -->
+      <div class="col-12 col-md-4 col-lg-3">
+        <div class="card text-center h-100 p-3">
+          <img src="img/Perfume" class="card-img-top mx-auto mt-3" alt="Perfume 1" style="width: 100px; height: auto;">
+          <div class="card-body">
+            <h5 class="fw-bold mb-2">Promo 1</h5>
+            <p class="text-muted">Todos los medios de pago</p>
+            <p class="fs-5 fw-semibold">$10.000</p>
+            <button class="btn btn-outline-dark mt-2">Ver más</button>
+          </div>
         </div>
-    </section>
-    <br>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row justify-content-between align-items-center text-center text-md-start">
-                <!-- Redes Sociales -->
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <a href="https://www.instagram.com/lux.fragancias_/">
-                        <img src="img/instagram.png" alt="Instagram" width="30" class="me-3" />
-                    </a>
-                    <a href="https://wa.me/3813012728">
-                        <img src="img/whatsapp.png" alt="WhatsApp" width="30" />
-                    </a>
-                </div>
+    </div>
+  </section>
 
-                <!-- Enlaces -->
-                <div class="col-12 col-md-8">
-                    <nav class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3">
-                        <a href="index.html" class="text-white text-decoration-none">Inicio</a>
-                        <a href="#" class="text-white text-decoration-none">Quiénes Somos</a>
-                        <a href="php/Fragancias.html" class="text-white text-decoration-none">Fragancias</a>
-                        <a href="php/Catalogos.html" class="text-white text-decoration-none">Catálogo</a>
-                        <a href="php/Contacto.html" class="text-white text-decoration-none">Contacto</a>
-                    </nav>
-                </div>
-            </div>
+  <!-- PUBLICIDAD -->
+  <section class="container my-5 publicidad">
+    <img src="img/Publicidad" alt="Publicidad de perfumes" class="img-fluid">
+  </section>
+
+  <!-- SECCIÓN NEGRA (SOPORTE Y PROMOS) -->
+  <section class="bg-primary text-white py-5">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-12 col-md-4">
+          <img src="img/whatsapp.png" alt="Soporte" width="50" class="mb-3">
+          <p>Atención personalizada y soporte postventa</p>
         </div>
-    </footer>
+        <div class="col-12 col-md-4">
+          <img src="img/billetera.png" alt="Pagos" width="50" class="mb-3">
+          <p>Todos los medios de pago disponibles</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <img src="img/etiqueta.png" alt="Promos" width="50" class="mb-3">
+          <p>Promociones exclusivas en combos de fragancias</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!--index.js-->
-    <script src="js/index.js"></script>
+  <!-- FOOTER -->
+  <footer class="footer bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="row text-center text-md-start align-items-center">
+
+        <!-- Columna izquierda -->
+        <div class="col-12 col-md-4 mb-4 mb-md-0 text-center text-md-start">
+          <h3 class="fw-bold text-uppercase" style="color: #d4af37;">Lux Fragancias</h3>
+          <p class="text-secondary mb-0">Elegancia, aroma y estilo en cada detalle.</p>
+        </div>
+
+        <!-- Columna central -->
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+          <nav class="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <a href="index.html" class="text-white">Inicio</a>
+            <a href="php/Fragancias.html" class="text-white">Fragancias</a>
+            <a href="php/Catalogos.html" class="text-white">Catálogo</a>
+            <a href="php/Contacto.html" class="text-white">Contacto</a>
+          </nav>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="col-12 col-md-4 text-center text-md-end">
+          <a href="https://www.instagram.com/lux.fragancias_/" target="_blank" class="me-3">
+            <img src="img/instagram.png" alt="Instagram" width="35" />
+          </a>
+          <a href="https://wa.me/3813012728" target="_blank">
+            <img src="img/whatsapp.png" alt="WhatsApp" width="35" />
+          </a>
+        </div>
+      </div>
+
+      <hr class="border-light my-4" />
+
+      <div class="text-center text-secondary small">
+        © 2025 <span style="color:#d4af37;">Lux Fragancias</span>. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
