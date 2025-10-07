@@ -105,11 +105,23 @@
       <!-- Buscador -->
       <div class="col-12 col-md-4">
         <form id="searchForm" class="d-flex justify-content-center justify-content-md-end" role="search" onsubmit="return false;">
-          <input id="searchInput" class="form-control me-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Buscar">
-          <button class="btn btn-outline-secondary" type="submit" aria-label="Buscar" onclick="filtrarCombos()">
-            <i class="bi bi-search"></i>
-          </button>
-        </form>
+        <input 
+        id="searchInput" 
+        class="form-control me-2" 
+        type="search" 
+        placeholder="¿Qué estás buscando?" 
+        aria-label="Buscar"
+      >
+  <button 
+    class="btn btn-outline-secondary" 
+    type="button" 
+    aria-label="Buscar" 
+    onclick="filtrarCombos()"
+  >
+    <i class="bi bi-search"></i>
+  </button>
+</form>
+
       </div>
     </div>
   </header>
@@ -199,3 +211,4 @@
   <script src="../js/Catalogos.js"></script>
 </body>
 </html>
+
