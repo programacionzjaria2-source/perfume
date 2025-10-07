@@ -1,13 +1,15 @@
 function filtrarCombos() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const tarjetas = document.querySelectorAll('.container .row .card');
+  const input = document.getElementById('searchInput').value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const tarjetas = document.querySelectorAll('.card');
 
-    tarjetas.forEach(card => {
-        const texto = card.textContent.toLowerCase();
-        if (texto.includes(input)) {
-            card.closest('.col-12').style.display = '';  // Mostrar la tarjeta
-        } else {
-            card.closest('.col-12').style.display = 'none'; // Ocultar la tarjeta
-        }
-    });
+  tarjetas.forEach(card => {
+    const texto = card.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const columna = card.closest('[class*="col-"]');
+
+    if (texto.includes(input) || input === '') {
+      columna.style.display = '';
+    } else {
+      columna.style.display = 'none';
+    }
+  });
 }
